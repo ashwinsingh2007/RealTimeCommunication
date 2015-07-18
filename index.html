@@ -1,65 +1,202 @@
-<!doctype html>
-<!-- The Time Machine GitHub pages theme was designed and developed by Jon Rohan, on Feb 7, 2012. -->
-<!-- Follow him for fun. http://twitter.com/jonrohan. Tail his code on https://github.com/jonrohan -->
-<html>
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Ashwini Singh </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    
+    <meta name="author" content="Ashwin Singh">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="//cdn.webrtc-experiment.com/style.css">
 
-  <link rel="stylesheet" href="stylesheets/stylesheet.css" media="screen">
-  <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-  <script type="text/javascript" src="javascripts/script.js"></script>
+    <style>
+    audio,
+    video {
+        -moz-transition: all 1s ease;
+        -ms-transition: all 1s ease;
+        -o-transition: all 1s ease;
+        -webkit-transition: all 1s ease;
+        transition: all 1s ease;
+        vertical-align: top;
+        border-radius: 4%;
+        border: 20px solid;
+        margin-bottom: 20px;  
+        box-shadow: 1px 1px 20px;
+    }
+    input {
+        border: 1px solid #d9d9d9;
+        border-radius: 1px;
+        font-size: 2em;
+        margin: .2em;
+        width: 30%;
+margin-left:23%;
+    }
+    .setup {
+        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
+        font-size: 102%;
+        height: 47px;
+        margin-left: -9px;
+        margin-top: 8px;
+        position: absolute;
+    }
+    p {
+        padding: 1em;
+    }
+    li {
+        border-bottom: 1px solid rgb(189, 189, 189);
+        border-left: 1px solid rgb(189, 189, 189);
+        padding: .5em;
+    }
+    </style>
+    <script>
+    document.createElement('article');
+    document.createElement('footer');
+    </script>
 
-  <title>Realtimecommunication</title>
-  <meta name="description" content="Video conferencing using webrtc.webrtc is a technology used to trasfer file peer2peer,video conferencing and other peer2peer works">
-
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-
+    <!-- scripts used for broadcasting -->
+    <script src="//cdn.webrtc-experiment.com/firebase.js">
+    </script>
+    <script src="//cdn.webrtc-experiment.com/RTCMultiConnection.js">
+    </script>
 </head>
 
 <body>
-
-  <div class="wrapper">
-    <header>
-      <h1 class="title">Realtimecommunication</h1>
-    </header>
-    <div id="container">
-      <p class="tagline">Video conferencing using webrtc.webrtc is a technology used to trasfer file peer2peer,video conferencing and other peer2peer works</p>
-      <div id="main" role="main">
-        <div class="download-bar">
-        <div class="inner">
-          <a href="https://github.com/ashwinsingh2007/RealTimeCommunication/tarball/master" class="download-button tar"><span>Download</span></a>
-          <a href="https://github.com/ashwinsingh2007/RealTimeCommunication/zipball/master" class="download-button zip"><span>Download</span></a>
-          <a href="https://github.com/ashwinsingh2007/RealTimeCommunication" class="code">View Realtimecommunication on GitHub</a>
-        </div>
-        <span class="blc"></span><span class="trc"></span>
-        </div>
-        <article class="markdown-body">
-          <p>This is just one application of Webrtc technology.This program is a scratch from muaz khan's webrtc tutorial.
-Webrtc is a technology which is currently used by facebook,google for video conferencing,file transfer.
-For more information visit:<a href="http://www.webrtc.org/">http://www.webrtc.org/</a>
-Visit Example:-www.appengine.hostoi.com/webrtc</p>
-        </article>
-      </div>
-    </div>
-    <footer>
-      <div class="owner">
-      <p><a href="https://github.com/ashwinsingh2007" class="avatar"><img src="https://avatars1.githubusercontent.com/u/9163844?v=3&amp;s=60" width="48" height="48"></a> <a href="https://github.com/ashwinsingh2007">ashwinsingh2007</a> maintains <a href="https://github.com/ashwinsingh2007/RealTimeCommunication">Realtimecommunication</a></p>
-
-
-      </div>
-      <div class="creds">
-        <small>This page generated using <a href="https://pages.github.com/">GitHub Pages</a><br>theme by <a href="https://twitter.com/jonrohan/">Jon Rohan</a></small>
-      </div>
-    </footer>
-  </div>
-  <div class="current-section">
-    <a href="#top">Scroll to top</a>
-    <a href="https://github.com/ashwinsingh2007/RealTimeCommunication/tarball/master" class="tar">tar</a><a href="https://github.com/ashwinsingh2007/RealTimeCommunication/zipball/master" class="zip">zip</a><a href="" class="code">source code</a>
-    <p class="name"></p>
-  </div>
-
+ 
+       
+ <h1 style="  font-family: cursive;margin-left:25%;
   
+  color: teal;" align="center">Real Time Communication Using WebRTC</h1>
+        <br>
+      
+ <h3 style="  font-family: cursive;margin-left:2%;
+  
+  color: teal;" align="center">Project bY:<br> Ashwini Singh</h3>
+        <br>
+        <!-- just copy this <section> and next script -->
+        <section class="experiment">
+            <section>
+               
+
+                <input type="text" id="conference-name">
+                <button id="setup-new-conference" class="setup">Start Video Conferencing</button>
+            </section>
+
+            <!-- list of all available broadcasting rooms -->
+            <table style="width: 100%;" id="rooms-list"></table>
+
+            <!-- local/remote videos container -->
+            <div id="videos-container"></div>
+        </section>
+
+        <script>
+        
+        var connection = new RTCMultiConnection();
+        connection.session = {
+            audio: true,
+            video: true
+        };
+        connection.onstream = function(e) {
+            e.mediaElement.width = 600;
+            videosContainer.insertBefore(e.mediaElement, videosContainer.firstChild);
+            rotateVideo(e.mediaElement);
+            scaleVideos();
+        };
+        function rotateVideo(mediaElement) {
+            mediaElement.style[navigator.mozGetUserMedia ? 'transform' : '-webkit-transform'] = 'rotate(0deg)';
+            setTimeout(function() {
+                mediaElement.style[navigator.mozGetUserMedia ? 'transform' : '-webkit-transform'] = 'rotate(360deg)';
+            }, 1000);
+        }
+        connection.onstreamended = function(e) {
+            e.mediaElement.style.opacity = 0;
+            rotateVideo(e.mediaElement);
+            setTimeout(function() {
+                if (e.mediaElement.parentNode) {
+                    e.mediaElement.parentNode.removeChild(e.mediaElement);
+                }
+                scaleVideos();
+            }, 1000);
+        };
+        var sessions = {};
+        connection.onNewSession = function(session) {
+            if (sessions[session.sessionid]) return;
+            sessions[session.sessionid] = session;
+            var tr = document.createElement('tr');
+            tr.innerHTML = '<td><strong>' + session.extra['session-name'] + '</strong> is running a conference!</td>' +
+                '<td><button class="join">Join</button></td>';
+            roomsList.insertBefore(tr, roomsList.firstChild);
+            var joinRoomButton = tr.querySelector('.join');
+            joinRoomButton.setAttribute('data-sessionid', session.sessionid);
+            joinRoomButton.onclick = function() {
+                this.disabled = true;
+                var sessionid = this.getAttribute('data-sessionid');
+                session = sessions[sessionid];
+                if (!session) throw 'No such session exists.';
+                connection.join(session);
+            };
+        };
+        var videosContainer = document.getElementById('videos-container') || document.body;
+        var roomsList = document.getElementById('rooms-list');
+        document.getElementById('setup-new-conference').onclick = function() {
+            this.disabled = true;
+            connection.extra = {
+                'session-name': document.getElementById('conference-name').value || 'Anonymous'
+            };
+            connection.open();
+        };
+        // setup signaling to search existing sessions
+        connection.connect();
+        (function() {
+            var uniqueToken = document.getElementById('unique-token');
+            if (uniqueToken)
+                if (location.hash.length > 2) uniqueToken.parentNode.parentNode.parentNode.innerHTML = '<h2 style="text-align:center;"><a href="' + location.href + '" target="_blank">Share this link</a></h2>';
+                else uniqueToken.innerHTML = uniqueToken.parentNode.parentNode.href = '#' + (Math.random() * new Date().getTime()).toString(36).toUpperCase().replace(/\./g, '-');
+        })();
+        function scaleVideos() {
+            var videos = document.querySelectorAll('video'),
+                length = videos.length,
+                video;
+            var minus = 130;
+            var windowHeight = 700;
+            var windowWidth = 600;
+            var windowAspectRatio = windowWidth / windowHeight;
+            var videoAspectRatio = 4 / 3;
+            var blockAspectRatio;
+            var tempVideoWidth = 0;
+            var maxVideoWidth = 0;
+            for (var i = length; i > 0; i--) {
+                blockAspectRatio = i * videoAspectRatio / Math.ceil(length / i);
+                if (blockAspectRatio <= windowAspectRatio) {
+                    tempVideoWidth = videoAspectRatio * windowHeight / Math.ceil(length / i);
+                } else {
+                    tempVideoWidth = windowWidth / i;
+                }
+                if (tempVideoWidth > maxVideoWidth)
+                    maxVideoWidth = tempVideoWidth;
+            }
+            for (var i = 0; i < length; i++) {
+                video = videos[i];
+                if (video)
+                    video.width = maxVideoWidth - minus;
+            }
+        }
+        window.onresize = scaleVideos;
+        </script>
+
+       
+ 
+
+    <footer>
+         <h4 style="  font-family: cursive;margin-left:2%;
+  
+  color: teal;" align="center"></footer>
+
+
+    <script src="//cdn.webrtc-experiment.com/commits.js" async>
+    </script>
 </body>
+
 </html>
